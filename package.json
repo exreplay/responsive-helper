@@ -1,0 +1,25 @@
+{
+    "name": "@averjs/responsive-helper",
+    "version": "1.0.0",
+    "description": "Responsive Vue.js helper for Bootstrap 4",
+    "keywords": [
+      "vue",
+      "bootstrap",
+      "responsive",
+      "helper"
+    ],
+    "author": "Florian Weber <fl-weber@t-online.de>",
+    "contributors": [
+      "Florian Weber <fl-weber@t-online.de>"
+    ],
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/exreplay/responsive-helper"
+    },
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/exreplay/responsive-helper/issues"
+    },
+    "main": "src/index.js"
+  }
+  
