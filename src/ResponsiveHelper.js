@@ -19,7 +19,6 @@ export default {
     },
     render (h) {
         return h('div', map(this.computedBreakpoints, (item, key) => {
-            console.log(key);
             return h('div', {
                 class: item,
                 ref: key,
