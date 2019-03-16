@@ -1,6 +1,6 @@
 {
   "name": "@averjs/responsive-helper",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Responsive Vue.js helper for Bootstrap 4",
   "keywords": [
     "vue",
@@ -21,6 +21,9 @@
     "url": "https://github.com/exreplay/responsive-helper/issues"
   },
   "main": "dist/responsive-helper.js",
+  "files": [
+    "/dist"
+  ],
   "scripts": {
     "build": "rollup --config"
   },
