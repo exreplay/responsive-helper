@@ -27,7 +27,7 @@ Implement it in eg. App.vue:
 <template>
     <div id="app">
         <responsive-helper />
-        <span v-text="bp"></span>
+        <span v-text="bp" v-if="showSpan"></span>
     </div>
 </template>
 
@@ -36,6 +36,9 @@ Implement it in eg. App.vue:
         computed() {
             bp() {
                 return this.$bp.currentBreakpoint();
+            }
+            showSpan() {
+                return this.$bp.down('md');
             }
         }
     }
