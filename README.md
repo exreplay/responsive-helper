@@ -1,6 +1,6 @@
 # Responsive Helper
 
-This package is a helper component to determine Bootstrap 4 breakpoints in Vue.js
+This package is a helper component to determine Bootstrap 4 breakpoints in Vue.js.
 
 ## Installation
 
@@ -14,41 +14,48 @@ yarn add @averjs/responsive-helper
 
 ## Usage
 
-Add the component to Vue like you would do with any other component.
+Register the plugin:
 ```js
+import Vue from 'vue';
 import ResponsiveHelper from '@averjs/responsive-helper';
 
-export default {
-    components: {
-        ResponsiveHelper
-    }
-}
-
-// OR
-
-export default {
-    components: {
-        ResponsiveHelper: () => import('@averjs/responsive-helper')
-    }
-}
+Vue.use(ResponsiveHelper);
 ```
 
-The component registers a global variable called `$bp`. It exposes 3 Methods described below.
+Implement it in eg. App.vue:
+```html
+<template>
+    <div id="app">
+        <responsive-helper />
+        <span v-text="bp"></span>
+    </div>
+</template>
 
-```js
-export default {
-    //...
-    mounted() {
-        console.log(this.$bp.currentBreakpoint());
+<script>
+    export default {
+        data() {
+            return {
+                bp: ''
+            }
+        }
+        mounted() {
+            this.bp = this.$bp.currentBreakpoint();
+        }
     }
-    //...
-}
+</script>
 ```
+
+The component adds a instance property called `$bp`. It exposes 3 Methods described below.
+
+## Options
+
+- `name` ***String*** (*optional*)
+The name for the component.
 
 ## Props
 
 - `breakpoints` ***Array*** (*optional*)   
-An of strings with the breakpoints. Default values are [ 'xs', 'sm', 'md', 'lg', 'xl' ].
+An array of strings with the breakpoints. Default values are [ 'xs', 'sm', 'md', 'lg', 'xl' ].
 
 ## Methods
 

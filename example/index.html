@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div id="app">
+        <responsive-helper></responsive-helper><br>
+        <span v-text="bp"></span><br>
+        <span>sm down: {{ smdown }}</span><br>
+        <span>lg up: {{ lgup }}</span>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.9/dist/vue.js"></script>
+    <script src="../dist/responsive-helper.umd.js"></script>
+    <script>
+        Vue.config.devtools = true;
+        Vue.use(ResponsiveHelper);
+
+        const app = new Vue({
+            el: '#app',
+            data: function() {
+                return {
+                    bp: '',
+                    smdown: '',
+                    lgup: ''
+                }
+            },
+            mounted() {
+                this.bp = this.$bp.currentBreakpoint();
+                this.smdown = this.$bp.down('sm');
+                this.lgup = this.$bp.up('lg');
+                
+                //window.addEventListener('resize', () => {
+                //    this.bp = this.$bp.currentBreakpoint();
+                //    this.smdown = this.$bp.down('sm');
+                //    this.lgup = this.$bp.up('lg');
+                //});
+            }
+        });
+    </script>
+</body>
+</html>
