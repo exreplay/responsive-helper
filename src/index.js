@@ -7,10 +7,14 @@ const ResponsiveHelperPlugin = {
             name: 'responsive-helper'
         }, options);
 
+        methods.createSharedVm(Vue);
+
         Vue.prototype.$bp = {
             down: (...args) => methods.down(...args),
             up: (...args) => methods.up(...args),
-            currentBreakpoint: () => state.currentBreakpoint
+            currentBreakpoint() {
+                return state.sharedVm.$data.bp;
+            }
         };
 
         Vue.component(defaultOptions.name, ResponsiveHelper);

@@ -8,10 +8,10 @@
 </head>
 <body>
     <div id="app">
-        <responsive-helper></responsive-helper><br>
+        <responsive-helper></responsive-helper>
         <span v-text="bp"></span><br>
-        <span>sm down: {{ smdown }}</span><br>
-        <span>lg up: {{ lgup }}</span>
+        <span>sm down: {{ down }}</span><br>
+        <span>lg up: {{ up }}</span>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.9/dist/vue.js"></script>
     <script src="../dist/responsive-helper.umd.js"></script>
@@ -21,23 +21,10 @@
 
         const app = new Vue({
             el: '#app',
-            data: function() {
-                return {
-                    bp: '',
-                    smdown: '',
-                    lgup: ''
-                }
-            },
-            mounted() {
-                this.bp = this.$bp.currentBreakpoint();
-                this.smdown = this.$bp.down('sm');
-                this.lgup = this.$bp.up('lg');
-                
-                window.addEventListener('resize', () => {
-                    this.bp = this.$bp.currentBreakpoint();
-                    this.smdown = this.$bp.down('sm');
-                    this.lgup = this.$bp.up('lg');
-                });
+            computed: {
+                bp() { return this.$bp.currentBreakpoint(); },
+                down() { return this.$bp.down('sm'); },
+                up() { return this.$bp.up('lg') }
             }
         });
     </script>

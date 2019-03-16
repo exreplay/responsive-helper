@@ -1,18 +1,26 @@
 export const state = {
     breakpoints: {},
-    currentBreakpoint: ''
+    sharedVm: null
 }
 
 export const methods = {
+    createSharedVm: function(Vue) {
+        state.sharedVm = new Vue({
+            data: {
+                bp: ''
+            }
+        });
+    },
+
     getCurrentBreakpoint: function() {
         for (const key in state.breakpoints) {
             const style = window.getComputedStyle(this.$refs[key][0]);
-            if (style.display !== 'none') state.currentBreakpoint = key;
+            if (style.display !== 'none') state.sharedVm.$data.bp = key;
         }
     },
 
     down: function(bp, equals = true) {
-        const curBp = Object.keys(state.breakpoints).indexOf(state.currentBreakpoint);
+        const curBp = Object.keys(state.breakpoints).indexOf(state.sharedVm.$data.bp);
         const passedBp = Object.keys(state.breakpoints).indexOf(bp);
 
         if (equals) return curBp <= passedBp;
@@ -20,7 +28,7 @@ export const methods = {
     },
 
     up: function(bp, equals = true) {
-        const curBp = Object.keys(state.breakpoints).indexOf(state.currentBreakpoint);
+        const curBp = Object.keys(state.breakpoints).indexOf(state.sharedVm.$data.bp);
         const passedBp = Object.keys(state.breakpoints).indexOf(bp);
 
         if (equals) return curBp >= passedBp;

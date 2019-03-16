@@ -33,19 +33,16 @@ Implement it in eg. App.vue:
 
 <script>
     export default {
-        data() {
-            return {
-                bp: ''
+        computed() {
+            bp() {
+                return this.$bp.currentBreakpoint();
             }
-        }
-        mounted() {
-            this.bp = this.$bp.currentBreakpoint();
         }
     }
 </script>
 ```
 
-The component adds a instance property called `$bp`. It exposes 3 Methods described below.
+The component adds a instance property called `$bp`. It exposes 3 Methods described below. By wrapping those methods inside a computed property you can make use of reactivity, like shown above.
 
 ## Options
 
