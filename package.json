@@ -1,6 +1,6 @@
 {
   "name": "@averjs/responsive-helper",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "Responsive Vue.js helper for Bootstrap 4",
   "keywords": [
     "vue",
