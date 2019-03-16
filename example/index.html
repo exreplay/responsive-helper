@@ -33,11 +33,11 @@
                 this.smdown = this.$bp.down('sm');
                 this.lgup = this.$bp.up('lg');
                 
-                //window.addEventListener('resize', () => {
-                //    this.bp = this.$bp.currentBreakpoint();
-                //    this.smdown = this.$bp.down('sm');
-                //    this.lgup = this.$bp.up('lg');
-                //});
+                window.addEventListener('resize', () => {
+                    this.bp = this.$bp.currentBreakpoint();
+                    this.smdown = this.$bp.down('sm');
+                    this.lgup = this.$bp.up('lg');
+                });
             }
         });
     </script>
